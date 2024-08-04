@@ -1,0 +1,29 @@
+Object
+description
+: 
+"Sunny"
+forecast
+: 
+Array(3)
+0
+: 
+{day: '1', temperature: '+33 °C', wind: '12 km/h'}
+1
+: 
+{day: '2', temperature: '+34 °C', wind: '12 km/h'}
+2
+: 
+{day: '3', temperature: '33 °C', wind: '8 km/h'}
+length
+: 
+3
+[[Prototype]]
+: 
+Array(0)
+temperature
+: 
+"+32 °C"
+wind
+: 
+"10 km/h"
+[[Prototyp

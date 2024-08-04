@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    </style>
+</head>
+<body>
+
+    <div>
+        <nav class="bg-white border-gray-200 dark:bg-gray-900">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+              <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                  <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Gravili Weather</span>
+              </a>
+              <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+                  <span class="sr-only">Open main menu</span>
+                  <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                  </svg>
+              </button>
+              <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                  <li>
+                    <a href="index.html" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+                  </li>
+                  
+                  <li>
+                    <a href="secondo.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+                  </li>
+                  
+                  <li>
+                    <a href="terzo.html" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+                  </li>
+                </ul>
+              </div>
+        <center>
+            <div class="input">
+            <input placeholder="Cerca una citta... In inglese" value="" type="text" id="inp">
+            <button onclick="fun()" class="button-36" role="button">Cerca</button>
+            </div>
+            
+            <div class="posizione">
+              <div class="container">
+                <div class="box">
+                  <span class="title">Dati Città</span>
+                  <div>
+                    <strong id="situazione">Situazione</strong>
+                    <p id="temperatura">Temperatura</p>
+                    <span id="vento">Vento</span> 
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <style>
+              .input {
+                position: relative;
+                top: 70px;
+              }
+
+              #inp {
+                position: relative;
+                top: 180px;
+              }
+
+              .button-36 {
+                position: relative;
+                top: 80px;
+              }
+
+              .posizione {
+                position: relative;
+                top: 350px;
+                left: -500px;
+              }
+
+              .container {
+                color: rgb(96, 114, 176);
+                position: relative;
+                font-family: sans-serif;
+              }
+
+              .box {
+                background-color: aquamarine;
+              }
+
+              .container::before,
+              .container::after {
+                content: "";
+                background-color: #fab5704c;
+                position: absolute;
+              }
+
+              .container::before {
+                border-radius: 50%;
+                width: 6rem;
+                height: 6rem;
+                top: 30%;
+                right: 7%;
+              }
+
+              .container::after {
+                content: "";
+                position: absolute;
+                height: 3rem;
+                top: 8%;
+                right: 5%;
+                border: 1px solid;
+              }
+
+              .container .box {
+                width: 11.875em;
+                height: 15.875em;
+                padding: 1rem;
+                background-color: rgba(255, 255, 255, 0.074);
+                border: 1px solid rgba(173, 157, 196, 0.222);
+                -webkit-backdrop-filter: blur(20px);
+                backdrop-filter: blur(20px);
+                border-radius: 0.7rem;
+                transition: all ease 0.3s;
+              }
+
+              .container .box {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+              }
+
+              .container .box .title {
+                font-size: 2rem;
+                font-weight: 500;
+                letter-spacing: 0.1em;
+              }
+
+              .container .box div strong {
+                display: block;
+                margin-bottom: 0.5rem;
+              }
+
+              .container .box div p {
+                margin: 0;
+                font-size: 0.9em;
+                font-weight: 300;
+                letter-spacing: 0.1em;
+              }
+
+              .container .box div span {
+                font-size: 0.7rem;
+                font-weight: 300;
+              }
+
+              .container .box div span:nth-child(3) {
+                font-weight: 500;
+                margin-right: 0.2rem;
+              }
+
+              .container .box:hover {
+                box-shadow: 0px 0px 20px 1px #997dd53f;
+                border: 1px solid rgba(130, 79, 224, 0.454);
+              }
+
+              #inp {
+                  position: relative;
+                  top: 65px;
+                  height: 50px;
+                  width: 240px;
+                  border-radius: 10px;
+                  border: 1px solid black;
+              }
+              .button-36 {
+                position: relative;
+                top: 65px;
+                background-image: linear-gradient(92.88deg, #4968da 9.16%, #6e5ed4 43.89%, #594b80 64.72%);
+                border-radius: 8px;
+                border-style: none;
+                box-sizing: border-box;
+                color: #FFFFFF;
+                cursor: pointer;
+                flex-shrink: 0;
+                font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+                font-size: 16px;
+                font-weight: 500;
+                height: 4rem;
+                padding: 0 1.6rem;
+                text-align: center;
+                text-shadow: rgba(160, 132, 217, 0.25) 0 3px 8px;
+                transition: all .5s;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+              }
+
+              .button-36:hover {
+                box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+                transition-duration: .1s;
+              }
+
+              @media (min-width: 768px) {
+                .button-36 {
+                  padding: 0 2.6rem;
+                }
+              }
+            </style>
+          </div>
+        </center>
+    </div>
+        
+    <script>
+        // API Request link:https://goweather.herokuapp.com/weather/{City}
+        const fun = async () => {
+            let value = document.getElementById('inp').value;
+            let sit = document.getElementById('situazione');
+            let temp = document.getElementById('temperatura');
+            let ven = document.getElementById('vento');
+            
+
+            const response = await fetch(`https://goweather.herokuapp.com/weather/${value}`);
+            const jsonResponse = await response.json();
+            console.log(jsonResponse);
+
+            // Inserire i dati
+            sit.innerText = jsonResponse.description;
+            temp.innerText = `Temperatura: ${jsonResponse.temperature}`;
+            ven.innerText = `Vento: ${jsonResponse.wind}`;
+            
+        }
+    </script>
+       
+</body> 
+</html>
